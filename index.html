@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
+	<meta name="viewport" content="width=device-width , initial-scale=1.0">
+	<style >
+
+
+		html,body{
+			height: 100%;
+			margin:0;			
+		}
+
+		.Image.Circle{border-radius: 50%;}
+		.SmallRounded{border-radius: 2%;}
+		.Nav .fa{color:gray;margin-left: 18px;}
+		.Receiver .fa{color:rgb(144, 144, 144);margin-right: 8px;}
+
+		.Button{
+			border-radius: 5px;
+			width: 200px;
+			height: 65px;
+			background-color: white;
+			border: 4px solid ;			
+			font-size: .7em;
+		}
+		.Button.Green{			
+			color: rgb(104,185,144);			
+			border-color:rgb(104,185,144);
+		}
+		.Button.Gray{			
+			color: rgb(128,128,128);			
+			border-color:rgb(230,230,230);
+		}
+		.TextH1,.TextH2,.TextH3,.TextP, .Text{
+			font-family: 'Roboto', sans-serif;
+			color:rgb(100,100,100);
+			line-height: 150%; 
+		}
+		.Text.MyName{font-size: 1em;color:rgba(255,255,255,.9);}
+		.Text.Designation,.Text.Credit{font-size: .9em;color:rgba(220,220,220,.8);}
+		.TextH1{font-size:1.5em;}
+		.TextH2{font-size:1em;font-weight: 400;}
+		.TextH3{font-size:.65em;font-weight: 500;color: rgb(120, 120, 120);}
+		.TextP{font-size:.65em;font-weight: 500;color: rgb(144, 144, 144);line-height: 175%;}
+		.ProjectCard>.TextP{font-size: .55em;}
+		form input,form textarea{
+			background-color: rgb(248,248,248);
+			border-radius: 5px;
+			border:0px;
+			padding: 3%;
+		}
+		input::-webkit-input-placeholder,textarea::-webkit-input-placeholder{
+			/*padding:4%;*/
+			font-family: 'Roboto', sans-serif;
+			color: rgb(160,160,160);
+			text-align: top;
+			font-size:1.4em;
+			font-weight: 400;
+
+		}
+
+		#page{
+			position:  relative;
+			height: 100%;
+			width: 100%;
+			display: flex;
+			justify-content: flex-start;
+		}
+		.NavMain{flex-basis: 34%;}
+		.Nav-Wrapper{
+			position: fixed;
+			box-sizing:border-box;
+			padding: 9% 4.75%;
+			height: 100%;
+			width: 34%;
+			background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),url("images/bg.jpg");
+			background-size:cover;
+
+
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+		}
+
+
+		.ContentMain{
+			flex-basis: 66%;
+			overflow-y: auto;
+			box-sizing:border-box;
+			padding: 9% 10% 8% 4.75%;
+			width: 35%;
+		}
+		.Nav.Top{
+			display: flex;
+			flex-direction: column;
+			align-items: flex-end;			
+		}
+		.Nav>.Text{text-align: right;}
+		.Nav.Bottom{
+			display: flex;
+			flex-direction: column;
+			-ms-align-items: flex-end;
+			align-items: flex-end;
+		}
+		.Notices> div{
+			display: inline-block;
+			font-size: .6em;
+			color: gray;
+		}
+		.Notices>.Copyright{
+			border-right:  1px solid gray;
+			padding-right: 8px;
+		}
+
+
+		.Main.Description{ 
+			padding-bottom: 32px;
+			border-bottom-color: gray;
+			border-bottom-width: 50px; 
+		}
+
+
+		.TextH1{margin-bottom: 40px;}
+		.TextH2{margin-bottom: 24px;}
+		.TextH3{margin-bottom: 16px;}
+		.TextP{margin-bottom: 32px;}
+		.Nav.Image{margin-bottom: 32px;}
+		.ProjectCard>.Image{margin-bottom: 24px;}
+		.Main.Contact .TextP{margin-bottom: 48px}
+		.Sender{margin-right: 24px;}
+
+		.Main.Description , .Main.Projects{
+			padding-bottom: 10%;
+			margin-bottom: 10%;
+			border-bottom: 3px solid rgb(232,232,232);
+		}
+		.ProjectCard{
+			display: inline-block;
+		}
+
+		.ProjectCard> .Image:hover {opacity: .7;}
+		.ProjectCard .Image{width: 100%;}
+		.ProjectsHolder{
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-between;
+		}
+		.ProjectCard{width: 48%;}
+
+		.SenderRecevier{
+			margin-bottom: 24px;
+			display: flex;
+		}
+		.Sender{
+			flex-basis:  65%;
+			display: flex;
+			flex-direction: column;
+		}
+
+		.Receiver{
+			flex-basis: 35%;
+			display: flex;
+			flex-direction: column;
+		}
+
+		.FirstLine{display: flex;justify-content: space-between;margin-bottom: 24px;}
+		.FirstLine > input{flex:1;}
+		.FirstLine>.Name{margin-right: 24px;}
+		.SecondLine{flex: 1;}
+
+		.Receiver>div{display: flex;}
+		.Receiver>div>i{flex-basis: 10%;text-align: center;}
+
+		@media screen and (max-width: 1200px) {
+
+			.ProjectsHolder{
+				flex-direction: column;
+				flex-wrap: nowrap;
+				justify-content: space-around;
+			}
+			.ProjectCard{width: 90%;}
+			.SenderRecevier{flex-direction: column;}
+			.Sender{margin-bottom: 24px;}
+			.FirstLine{flex-direction: column;margin-bottom: 0px;}
+			.Sender input,.Sender textarea{margin: 4px;}
+			.FirstLine>.Name{margin-right: 4px;}
+		}
+
+		@media screen and (max-width: 850px) {
+			#page{
+				overflow-y: auto;
+				flex-direction: column;
+			}
+			.NavMain{
+				flex-basis: 100%;;
+			}
+			.ContentMain{
+				flex-basis: 100%;
+				overflow: initial;
+				width: 100%;
+			}
+
+			.Nav-Wrapper{
+
+				position:  static;
+				width:100%;
+				padding: 24px;
+				flex-direction: row;
+				background-size: auto;
+			}
+			.Nav.Top{align-items: flex-start;}
+			.NavMain .fa,.NavMain .Text{color:rgb(200,200,200);}
+			.Nav.Notices> *{display: block;}
+			.Notices>.Copyright{border-right: 0px;}
+
+			.ContentMain{
+				padding: 24px;
+			}
+
+			.ProjectsHolder{
+				align-items: center;
+			}
+
+			/*.SenderRecevier{flex-direction: column;}
+			.Sender{margin-bottom: 24px;}
+			.FirstLine{flex-direction: column;margin-bottom: 0px;}
+			.Sender input,.Sender textarea{margin: 4px;}
+			.FirstLine>.Name{margin-right: 4px;}*/
+
+		}
+
+		.Modal{
+			display: none;
+			z-index: 1;
+			position: fixed;
+			top:0px;
+			left: 0px;
+			width: 100%;
+			height: 100%;
+
+			background-color: black;
+			background-color: rgba(0,0,0,0.8);
+		}
+		.Modal>.Content{
+			position: fixed;
+			top:50%;
+			left:50%;
+			transform: translate(-50%,-50%);
+
+			
+			
+		}
+		.Modal .Image {
+			border-radius: 6px 6px 0px 0px;
+		}
+		.Modal .Description{
+			background-color: white;
+			border-radius: 0px 0px 6px 6px;
+			transform: translate(0px,-10px);
+			text-align: center;
+			padding: 8px 0px;
+		}
+		.Modal .fa{color: rgb(200,200,200);
+			position: absolute;
+			margin: 16px;
+		}
+		.Modal .fa:hover,.Modal .fa:focus{color :white;
+		}
+		.Modal .Close{
+			right: 0px;
+			top:0px;
+		}
+		.Modal .Left{
+			left: 0px;
+			top:40%;
+		}
+		.Modal .Right{
+			right: 0px;
+			top:40%;
+		}
+	</style>
+
+	<title>Amit Resume</title>
+</head>
+
+<body>
+	<div id="page">
+		<div class="NavMain">
+			<div class="Nav-Wrapper">
+				<div class="Nav Top">
+					<img src="images/avatar.jpg" class="Nav Image Circle"></img>
+					<div class="Nav MyName Text">I am Amit</div>
+					<div class="Nav Designation Text">Trainee at FusionCharts</div>
+					<div class="Nav Credit Text">crafted by FusionCharts</div>
+				</div>
+				<div class="Nav Bottom">
+					<div class="Nav Icons">
+						<i class="fa fa-twitter"></i>
+						<i class="fa fa-github"></i>
+						<i class="fa fa-envelope"></i>
+						<i class="fa fa-game"></i>
+					</div>
+					<div class="Nav Notices">
+						<div class="Text Copyright">©Amit Digga</div>
+						<div class="Text Design">Design:FusionCharts</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="ContentMain">
+			<div class="Main Description">
+				<div class="TextH1">Ipsum dolor sit amet, consectetur adipisicing elit. Minima placeat molestias!</div>
+				<div class="TextP">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id, explicabo ipsam voluptatibus autem excepturi quo a, quasi obcaecati dolores soluta eius maiores, quae accusantium architecto. In fugit temporibus blanditiis consequuntur natus adipisci illum esse animi quidem, tempore, numquam provident quae dicta nisi quis maiores impedit!</div>
+
+				<a href="#"><button class="Button Green">Learn More</button></a>
+
+			</div>
+			<div class="Main Projects">
+				<div class="TextH2">Recent Work</div>
+				<div  class="ProjectsHolder" id="projects">
+					<div class="ProjectCard">
+						<img src="images/thumbs/01.jpg" alt="Project 1" class="SmallRounded Image" />
+						<div class="ProjectName TextH3">Consectetur adipisicing elit</div>
+						<div class="ProjectDesc TextP">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id optio modi ut!</div>
+					</div>
+					<div class="ProjectCard">
+						<img src="images/thumbs/02.jpg" alt="Project 2" class="SmallRounded Image" />
+						<div class="ProjectName TextH3">Lorem ipsum dolor</div>
+						<div class="ProjectDesc TextP">Lorem ipsum dolor sit amet, consectetur adipisicing elit</div>
+					</div>
+					<div class="ProjectCard">
+						<img src="images/thumbs/03.jpg" alt="Project 3" class="SmallRounded Image" />
+						<div class="ProjectName TextH3">Autem, aut, rem. Nihil</div>
+						<div class="ProjectDesc TextP">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem, aut, rem. Nihil!</div>
+					</div>
+					<div class="ProjectCard">
+						<img src="images/thumbs/04.jpg" alt="Project 4" class="SmallRounded Image" />
+						<div class="ProjectName TextH3">Rerum corporis quae commodi</div>
+						<div class="ProjectDesc TextP">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum corporis quae commodi.</div>
+					</div>
+					<div class="ProjectCard">
+						<img src="images/thumbs/05.jpg" alt="Project 5" class="SmallRounded Image" />
+						<div class="ProjectName TextH3">Asperiores quod amet quae</div>
+						<div class="ProjectDesc TextP">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores quod amet quae.</div>
+					</div>
+					<div class="ProjectCard">
+						<img src="images/thumbs/06.jpg" alt="Project 6" class="SmallRounded Image" />
+						<div class="ProjectName TextH3">Porro quaerat ratione illo</div>
+						<div class="ProjectDesc TextP">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro quaerat ratione illo.</div>
+					</div>
+
+				</div>
+
+				<a href="#"><button class="Button Gray">Full Portfolio</button></a>
+			</div>
+			<div class="Main Contact">
+				<div class="TextH2">Get In Touch</div>
+				<p class="TextP">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit totam sint quis soluta sunt excepturi recusandae quae optio veniam nemo.</p>
+				<div class="SenderRecevier Info">
+					<form class="Sender">
+						<div class="FirstLine">
+							<input type="text" class="Name" placeholder="Name" >
+							<input type="text" class="Email" placeholder="Email" >
+						</div>
+						<textarea  type="text" class="SecondLine Message" rows= "2" placeholder="Message"></textarea>
+					</form>
+					<span class="Receiver">
+
+						<!-- 1 -->
+						<!-- <div class="TextP Address"><i class="fa fa-home"></i> Some floor near a building, Planet Earth</div>
+						<div class="TextP Phone"><i class="fa fa-mobile"></i>0000 000 000</div>
+						<div class="TextP Email"><i class="fa fa-envelope"></i>some.address@email.com</div> -->
+						<!-- 2 -->
+						<div class="Address">
+							<i class="fa fa-home"></i>
+							<div class="TextP"> Some floor near a building, Planet Earth</div>
+						</div>
+						<div class="Phone">
+							<i class="fa fa-mobile"></i>
+							<div class="TextP">0000 000 000</div>
+						</div>
+						<div class="Email">
+							<i class="fa fa-envelope"></i>
+							<div class="TextP">some.address@email.com</div>
+						</div>
+						<!-- 3 -->
+					<!-- <table class="Receiver">
+						<tr class="TextP Address">
+							<td><i class="fa fa-home"></i></td>
+							 <td>Some floor near a building, Planet Earth</td>
+						</tr>
+						<tr class="TextP Phone">
+							<td><i class="fa fa-mobile"></i></td>
+							<td>0000 000 000</td>
+						</tr>
+						<tr class="TextP Email">
+							<td><i class="fa fa-envelope"></i></td>
+							<td>some.address@email.com</td>
+						</tr>
+					</table> -->
+				</div>
+				<a href="#"><button class="Button Gray" >Send Message</button></a>
+
+
+			</div>
+		</div>
+
+	</div>
+	<div class="Modal" id="modal_dialog">
+
+		<div class="Content">
+
+			<img class="Image" src="images/fulls/01.jpg"></img>
+			<div class="Description TextP">Lorem ipsum dolor sit.</div>
+			<i class="fa fa-close Close"></i>
+			<i class="fa fa-arrow-left Left"></i>
+			<i class="fa fa-arrow-right Right"></i>
+		</div>
+
+	</div>
+	<script>
+		"use strict;"
+		var projects = document.getElementById('projects').children;
+		var modal = document.getElementById('modal_dialog');
+		var modalImage= modal.getElementsByClassName('Image')[0];
+		var modalDescription= modal.getElementsByClassName('Description')[0];
+		var bClose = modal.getElementsByClassName('Close')[0];
+		var bLeft = modal.getElementsByClassName('Left')[0];
+		var bRight = modal.getElementsByClassName('Right')[0];
+		var currentPosition;
+		function showProject(pNo){
+			console.log(pNo+" project clicked");
+			currentPosition = pNo;
+			modalImage.src = 'images/fulls/0'+(pNo+1)+'.jpg';
+			modalDescription.innerHTML = projects[pNo].getElementsByClassName('ProjectName')[0].innerHTML;
+			modal.style.display = 'block';
+			bLeft.style.display= currentPosition===0?'none':'block';
+			bRight.style.display= currentPosition===projects.length-1?'none':'block';
+		};
+		for (let i = 0; i < projects.length; i++)
+			projects[i].getElementsByClassName("Image")[0].addEventListener('click',
+				function(){showProject(i);});
+
+		bClose.addEventListener('click', function () {
+			console.log("close clicked");
+			modal.style.display = 'none';
+		});	
+		bLeft.addEventListener('click', function () {
+			console.log("left clicked");
+			showProject(currentPosition-1);
+		});	
+		bRight.addEventListener('click', function () {
+			console.log("right clicked");
+			showProject(currentPosition+1);
+		});	
+
+	</script>
+</body>
+</html>
